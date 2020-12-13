@@ -8,14 +8,40 @@ class UserForm extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () {
+            // Navigator.of(context).pop(); SALVAR E RETORNAR A TELA ANTERIOR.
+          },
         ),
         title: Text('Adicionar Usuario'),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.save), onPressed: () {}
-              //RETORNAR A TELA ANTERIOR
-              )
+          IconButton(
+              icon: Icon(Icons.save),
+              onPressed: () {
+                // Navigator.of(context).pop(); SALVAR E RETORNAR A TELA ANTERIOR.
+              })
         ],
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: Form(
+          child: Column(
+            children: <Widget>[
+              TextFormField(
+                decoration: InputDecoration(labelText: "Nome"),
+                validator: (value) {
+                  if (value.isEmpty)
+                    return "O campo é obrigatório";
+                  else
+                    return null;
+                },
+                maxLength: 30,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'E-mail'),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
