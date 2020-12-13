@@ -29,8 +29,9 @@ class UserForm extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(labelText: "Nome"),
                 validator: (value) {
-                  if (value.isEmpty)
-                    return "O campo é obrigatório";
+                  if (value.isEmpty) return "O campo é obrigatório";
+                  if (value.length > 30)
+                    return "O campo não pode ultrapassar o limite";
                   else
                     return null;
                 },
@@ -38,6 +39,21 @@ class UserForm extends StatelessWidget {
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'E-mail'),
+                validator: (value) {
+                  if (value.isEmpty) return "O campo é obrigatório";
+                  if (value.length > 254)
+                    return "O campo não pode ultrapassar o limite";
+                  else
+                    return null;
+                },
+                maxLength: 254,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Telefone"),
+              ),
+              RaisedButton(
+                child: Text('Validar botões'),
+                onPressed: () {},
               )
             ],
           ),
