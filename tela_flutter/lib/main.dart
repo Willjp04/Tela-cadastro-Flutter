@@ -16,6 +16,7 @@ class YabiApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: UserForm(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
