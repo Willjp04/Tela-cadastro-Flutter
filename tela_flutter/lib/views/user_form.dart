@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class UserForm extends StatelessWidget {
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +19,14 @@ class UserForm extends StatelessWidget {
           IconButton(
               icon: Icon(Icons.save),
               onPressed: () {
-                // Navigator.of(context).pop(); SALVAR E RETORNAR A TELA ANTERIOR.
+                if (_formkey.currentState.validate()) {}
               })
         ],
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
         child: Form(
+          key: _formkey,
           child: Column(
             children: <Widget>[
               TextFormField(
@@ -31,7 +34,7 @@ class UserForm extends StatelessWidget {
                 validator: (value) {
                   if (value.isEmpty) return "O campo é obrigatório";
                   if (value.length > 30)
-                    return "O campo não pode ultrapassar o limite";
+                    return "O Campo não pode ultrapassar o limite de caracteres";
                   else
                     return null;
                 },
@@ -42,7 +45,7 @@ class UserForm extends StatelessWidget {
                 validator: (value) {
                   if (value.isEmpty) return "O campo é obrigatório";
                   if (value.length > 254)
-                    return "O campo não pode ultrapassar o limite";
+                    return "O Campo não pode ultrapassar o limite de caracteres";
                   else
                     return null;
                 },
@@ -51,10 +54,6 @@ class UserForm extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(labelText: "Telefone"),
               ),
-              RaisedButton(
-                child: Text('Validar botões'),
-                onPressed: () {},
-              )
             ],
           ),
         ),
