@@ -11,7 +11,7 @@ class UserForm extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Navigator.of(context).pop(); SALVAR E RETORNAR A TELA ANTERIOR.
+            //Navigator.of(context).pop(); //RETORNAR A TELA ANTERIOR.
           },
         ),
         title: Text('Adicionar Usuario'),
@@ -37,7 +37,9 @@ class UserForm extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(labelText: "Nome"),
                 validator: (value) {
-                  if (value.isEmpty) return "O campo é obrigatório";
+                  if (value.isEmpty) return "O Campo é obrigatório";
+                  if (value.length < 5)
+                    return "O Campo precisa ter 5 ou mais caracteres";
                   if (value.length > 30)
                     return "O Campo não pode ultrapassar o limite de caracteres";
                   else
@@ -48,7 +50,9 @@ class UserForm extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(labelText: 'E-mail'),
                 validator: (value) {
-                  if (value.isEmpty) return "O campo é obrigatório";
+                  if (value.isEmpty) return "O Campo é obrigatório";
+                  if (value.length < 5)
+                    return "O Campo precisa ter 5 ou mais caracteres";
                   if (value.length > 254)
                     return "O Campo não pode ultrapassar o limite de caracteres";
                   else
