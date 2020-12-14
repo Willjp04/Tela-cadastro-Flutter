@@ -19,7 +19,12 @@ class UserForm extends StatelessWidget {
           IconButton(
               icon: Icon(Icons.save),
               onPressed: () {
-                if (_formkey.currentState.validate()) {}
+                if (_formkey.currentState.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Usuário adicionado'),
+                    duration: Duration(seconds: 2),
+                  ));
+                }
               })
         ],
       ),
