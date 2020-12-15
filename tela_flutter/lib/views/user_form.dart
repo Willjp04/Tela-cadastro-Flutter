@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 
 class UserForm extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
+  bool _switchControl = false;
+  bool _comissao = false;
+  void toggleSwitch(bool value) {
+    if (_comissao = true) {
+      return toggleSwitch(true);
+    } else
+      return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +70,15 @@ class UserForm extends StatelessWidget {
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: "Telefone"),
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Comissão por Venda ?'),
+                  Switch(
+                    onChanged: toggleSwitch,
+                    value: _switchControl,
+                  ),
+                ],
               ),
             ],
           ),
