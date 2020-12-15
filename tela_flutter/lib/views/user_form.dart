@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class UserForm extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
   bool _switchControl = false;
-  bool _comissao = false;
+
   void toggleSwitch(bool value) {
-    if (_comissao = true) {
+    if (_switchControl = true) {
       return toggleSwitch(true);
     } else
       return null;
