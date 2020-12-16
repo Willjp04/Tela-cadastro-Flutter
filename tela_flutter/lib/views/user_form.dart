@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class UserForm extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
   bool _switchControl = false;
+  final comissaovenda = false;
 
   void toggleSwitch(bool value) {
     if (_switchControl = true) {
@@ -47,8 +48,7 @@ class UserForm extends StatelessWidget {
                 decoration: InputDecoration(labelText: "Nome"),
                 validator: (value) {
                   if (value.isEmpty) return "O Campo é obrigatório";
-                  if (value.length < 5)
-                    return "O Campo precisa ter 5 ou mais caracteres";
+
                   if (value.length > 30)
                     return "O Campo não pode ultrapassar o limite de caracteres";
                   else
@@ -60,8 +60,7 @@ class UserForm extends StatelessWidget {
                 decoration: InputDecoration(labelText: 'E-mail'),
                 validator: (value) {
                   if (value.isEmpty) return "O Campo é obrigatório";
-                  if (value.length < 5)
-                    return "O Campo precisa ter 5 ou mais caracteres";
+
                   if (value.length > 254)
                     return "O Campo não pode ultrapassar o limite de caracteres";
                   else
@@ -80,6 +79,13 @@ class UserForm extends StatelessWidget {
                     value: _switchControl,
                   ),
                 ],
+              ),
+              RadioListTile(
+                value: 1,
+                groupValue: 1,
+                title: Text('Comissão Fixa'),
+                subtitle: TextFormField(),
+                onChanged: (comissaovenda) {},
               ),
             ],
           ),
