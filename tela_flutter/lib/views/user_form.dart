@@ -5,6 +5,7 @@ class UserForm extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
   bool _switchControl = false;
   final comissaovenda = false;
+  final comissaoporcentagem = false;
 
   void toggleSwitch(bool value) {
     if (_switchControl = true) {
@@ -85,8 +86,15 @@ class UserForm extends StatelessWidget {
                 groupValue: 1,
                 title: Text('Comissão Fixa'),
                 subtitle: TextFormField(),
-                onChanged: (comissaovenda) {},
+                onChanged: (comissaoporvenda) {},
               ),
+              RadioListTile(
+                value: 1,
+                groupValue: 2,
+                title: Text('Comissão Porcentagem'),
+                subtitle: TextField(),
+                onChanged: (comissaoporcentagem) {},
+              )
             ],
           ),
         ),
